@@ -78,9 +78,12 @@ def view_task(task_id):
                     failed_jobs += 1
                 else:
                     raise Exception('Job %d is in unknown status %s, please check it.' % (job.id, job.status))
+            task.unfinished = new_jobs
+            task.finished = finished_jobs
+            task.failed = failed_jobs
             if (finished_jobs + failed_jobs) == total_jobs:
                 task.status = ts_finished
-                task.save()
+            task.save()
             print('Task %d in progress: %d total, %d new, %d finished, %d failed.' % (task_id, total_jobs, new_jobs, finished_jobs, failed_jobs))
         elif task.status == ts_new:
             print('Task %d not started yet' % task_id)
