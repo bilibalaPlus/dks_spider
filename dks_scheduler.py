@@ -23,6 +23,7 @@ def parse_args():
     # 1. create: 创建新任务
     # 2. list: 显示活跃工作节点
     # 3. view: 查看任务状态
+    # 4. retry: 任务重试
     #########################
     parser.add_argument('-a',
                         '--action',
@@ -92,6 +93,17 @@ def view_task(task_id):
     else:
         raise Exception('Task %d not found' % task_id)
 
+def retry(task_id):
+    if dd.Task.select().where((dd.Task.id == task_id) and (dd.Task.status == ts_inprogress)):
+        rq = dq.Queue(task_id)
+        jobs = dd.Job.select().where(dd.job.status != js_finished)
+        for job in jobs:
+            source = dd.Source.select().where(dd.Source.id == job.source_id).get()
+            rq.put({'id':job.id, 'source_id':source.id, 'url':source.url})
+        print('Task %d rescheduled %d jobs' % (task_id, len(jobs))
+    else:
+        raise Exception('Task %d not found' % task_id)
+    
 if __name__ == '__main__':
     args = parse_args()
     action = args.action
