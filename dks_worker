@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument('-s',
                         '--spider',
                         help = 'Specify which spider to use. For example, use spider for spider.py.',
-                        default = 'spider')
+                        default = 'dks_spider_sample')
     parser.add_argument('-t',
                         '--tn',
                         help = 'How many threads to use',
