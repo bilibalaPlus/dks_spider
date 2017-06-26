@@ -11,5 +11,5 @@ def parse(driver, url):
     driver.get(url)
     elements = util.find_elements_by_css_selector(driver, 'item-display-image-container')
     for element in elements:
-        products.append(element.get_attribute('href')
+        products.append(element.get_attribute('href'))
     return ';'.join(products)
