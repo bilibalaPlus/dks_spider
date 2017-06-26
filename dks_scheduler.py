@@ -20,8 +20,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     ########## DKS ##########
     # -a --action参数说明
-    # 1. create: 创建新任务
-    # 2. list: 显示活跃工作节点
+    # 1. list: 显示活跃工作节点
+    # 2. create: 创建新任务
     # 3. view: 查看任务状态
     # 4. retry: 任务重试
     #########################
