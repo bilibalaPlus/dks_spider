@@ -18,4 +18,4 @@ def parse(driver, url):
     return ';'.join(products)
 
 if __name__ == '__main__':
-    print(parse(util.create_chrome_driver(), sys.argv[1])
+    print(parse(util.create_chrome_driver(), sys.argv[1]))
