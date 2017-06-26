@@ -7,7 +7,7 @@ import util
 
 prefix = 'www.bally.cn'
 
-def parse(drive, url):
+def parse(driver, url):
     products = []
     driver.get(url)
     driver.execute_script('window.scrollBy(0,50000)')
