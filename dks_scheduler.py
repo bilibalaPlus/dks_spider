@@ -96,7 +96,7 @@ def view_task(task_id):
 def retry_task(task_id):
     if dd.Task.select().where((dd.Task.id == task_id) and (dd.Task.status == ts_inprogress)):
         rq = dq.Queue(task_id)
-        jobs = dd.Job.select().where(dd.job.status != js_finished)
+        jobs = dd.Job.select().where(dd.Job.status != js_finished)
         for job in jobs:
             source = dd.Source.select().where(dd.Source.id == job.source_id).get()
             rq.put({'id':job.id, 'source_id':source.id, 'url':source.url})
