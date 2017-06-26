@@ -1,5 +1,10 @@
 # coding: utf-8
 
+import sys
+
+sys.path.append('.')
+import utils
+
 prefix = 'www.bally.cn'
 
 def parse(drive, url):
