@@ -14,5 +14,8 @@ def parse(driver, url):
     util.sleep(3)
     elements = util.find_elements_by_css_selector(driver, 'a.js-producttile_link')
     for element in elements:
-        products.append(element.get_attribute('href'))
+        products.append(element.get_attribute('href').strip())
     return ';'.join(products)
+
+if __name__ == '__main__':
+    print(parse(util.create_chrome_driver(), sys.argv[1])
