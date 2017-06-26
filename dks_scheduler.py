@@ -97,10 +97,12 @@ def retry_task(task_id):
     task = dd.Task.select().where(dd.Task.id == task_id)
     if task:
         task = task.get()
-        task.status = ts_inprogress
-        task.save()
         rq = dq.Queue(task_id)
         jobs = dd.Job.select().where(dd.Job.status != js_finished)
+        task.status = ts_inprogress
+        task.failed = 0
+        task.unfinished = task.tasks - task.finished
+        task.save()
         for job in jobs:
             source = dd.Source.select().where(dd.Source.id == job.source_id).get()
             rq.put({'id':job.id, 'source_id':source.id, 'url':source.url})
