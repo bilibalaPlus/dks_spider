@@ -9,6 +9,7 @@ prefix = 'www.bally.cn'
 
 def parse(drive, url):
     products = []
+    driver.get(url)
     driver.execute_script('window.scrollBy(0,50000)')
     utils.sleep(3)
     elements = util.find_elements_by_css_selector(driver, 'js-producttile_link')
