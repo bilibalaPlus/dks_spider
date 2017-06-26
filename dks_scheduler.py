@@ -100,7 +100,7 @@ def retry(task_id):
         for job in jobs:
             source = dd.Source.select().where(dd.Source.id == job.source_id).get()
             rq.put({'id':job.id, 'source_id':source.id, 'url':source.url})
-        print('Task %d rescheduled %d jobs' % (task_id, len(jobs))
+        print('Task %d rescheduled %d jobs' % (task_id, len(jobs)))
     else:
         raise Exception('Task %d not found' % task_id)
     
