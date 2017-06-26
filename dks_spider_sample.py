@@ -3,11 +3,11 @@
 import sys
 
 sys.path.append('.')
-import config
+import dks_config as dc
 
-js_new = config.job_status['new']
-js_finished = config.job_status['finished']
-js_failed = config.job_status['failed']
+js_new = dc.job_status['new']
+js_finished = dc.job_status['finished']
+js_failed = dc.job_status['failed']
 
 def parse(jobs): # DKS: 爬虫具体实现部分
     result = []
