@@ -93,7 +93,7 @@ def view_task(task_id):
     else:
         raise Exception('Task %d not found' % task_id)
 
-def retry(task_id):
+def retry_task(task_id):
     if dd.Task.select().where((dd.Task.id == task_id) and (dd.Task.status == ts_inprogress)):
         rq = dq.Queue(task_id)
         jobs = dd.Job.select().where(dd.job.status != js_finished)
@@ -113,3 +113,5 @@ if __name__ == '__main__':
         create_task()
     elif action == 'view':
         view_task(args.tid)
+    elif action == 'retry':
+        retry_task(args.tid)
