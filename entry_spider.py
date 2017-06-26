@@ -8,16 +8,16 @@ import traceback
 
 sys.path.append('.')
 import dks_config as dc
-import utils
+import util
 
 js_new = dc.job_status['new']
 js_finished = dc.job_status['finished']
 js_failed = dc.job_status['failed']
-parsers = utils.load_parsers('entry_parser')
+parsers = util.load_parsers('entry_parser')
 
 def parse(jobs):
     result = []
-    driver = utils.create_chrome_driver()
+    driver = util.create_chrome_driver()
     for job in jobs:
         result.append({'id':job['id'], 'source_id':job['source_id'], 'message':''})
         try:
