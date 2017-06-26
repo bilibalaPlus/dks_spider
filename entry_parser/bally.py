@@ -13,5 +13,5 @@ def parse(drive, url):
     utils.sleep(3)
     elements = util.find_elements_by_css_selector(driver, 'js-producttile_link')
     for element in elements:
-        products.append(element.get_attribute('href')
+        products.append(element.get_attribute('href'))
     return ';'.join(products)
