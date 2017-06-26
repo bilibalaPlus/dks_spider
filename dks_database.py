@@ -35,6 +35,7 @@ class Job(Model):
     status = CharField()
     message = CharField(default = '')
     created_at = DateTimeField(default = dt.datetime.now)
+    updated_at = DateTimeField(default = dt.datetime.now)
     class Meta:
         database = mysql_db
 
