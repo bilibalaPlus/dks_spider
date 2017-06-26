@@ -24,7 +24,7 @@ def parse(jobs):
             url = job['url']
             prefix = url.split('//')[1].split('/')[0]
             if prefix in parsers:
-                content = parsers[prefix].parse(driver, url)
+                content = parsers[prefix](driver, url)
                 result[-1]['status'] = js_finished
                 result[-1]['content'] = content
             else:
