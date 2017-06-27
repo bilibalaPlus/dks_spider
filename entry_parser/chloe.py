@@ -9,6 +9,8 @@ prefixes = ['www.chloe.cn']
 def parse(driver, url):
     products = []
     driver.get(url)
+    driver.execute_script('window.scrollBy(0,50000)')
+    util.sleep(3)
     elements = util.find_elements_by_css_selector(driver, 'section.products > article.item > div > a')
     if not elements: # https://www.chloe.cn/cn/chloe/%E5%A5%B3%E5%A3%AB/subhome/accessories_section
         elements = util.find_elements_by_css_selector(driver, 'article.product >a')
