@@ -13,6 +13,7 @@ def create_chrome_driver():
     options.add_argument('--ignore-certificate-errors')
     driver = webdriver.Chrome(chrome_options = options)
     driver.implicitly_wait(5)
+    driver.maximize_window()
     return driver
 
 def find_element_by_css_selector(item, selector):
