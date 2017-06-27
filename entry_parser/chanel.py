@@ -10,6 +10,8 @@ def parse(driver, url):
     products = []
     driver.get(url)
     elements = util.find_elements_by_css_selector(driver, 'h3.fnb_product-title > a')
+    if not elements: # https://www.chanel.com/zh_CN/watches-jewelry/watches/c/jewelry-watches/W009
+        elements = util.find_elements_by_css_selector(driver, 'div.product-item-wrapper > a')
     for element in elements:
         products.append(element.get_attribute('href').strip())
     return ';'.join(products)
