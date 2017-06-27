@@ -5,7 +5,7 @@ import sys
 sys.path.append('../')
 import util
 
-prefix = 'www.cartier.cn'
+prefixes = ['www.cartier.cn']
 
 def parse(driver, url):
     products = []
