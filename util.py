@@ -39,5 +39,6 @@ def load_parsers(folder, name = ''):
             continue
         if f.endswith('.py'):
             mod = importlib.import_module(folder + '.' + f[:-3])
-            handlers[mod.prefix] = mod.parse
+            for prefix in mod.prefixes:
+                handlers[prefix] = mod.parse
     return handlers
