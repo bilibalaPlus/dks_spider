@@ -20,5 +20,3 @@ if __name__ == '__main__':
     driver = util.create_chrome_driver()
     print(parse(driver, sys.argv[1]))
     driver.quit()
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security 
