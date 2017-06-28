@@ -5,7 +5,7 @@ import sys
 sys.path.append('../')
 import util
 
-prefixes = ['www.gucci.cn']
+prefixes = ['www.gucci.com'] # 打开浏览器后会自动跳转到.cn
 
 def parse(driver, url):
     products = []
