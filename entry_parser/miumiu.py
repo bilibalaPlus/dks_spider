@@ -5,7 +5,7 @@ import sys
 sys.path.append('../')
 import util
 
-prefixes = ['www.miumiu.con']
+prefixes = ['www.miumiu.com']
 def parse(driver, url):
     products = []
     driver.get(url)
