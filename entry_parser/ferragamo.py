@@ -12,7 +12,7 @@ def parse(driver, url):
     for i in range(10):
         driver.execute_script('window.scrollBy(0,50000)')
         util.sleep(0.5)
-    elements = util.find_elements_by_css_selector(driver, 'div.product > div > a')
+    elements = util.find_elements_by_css_selector(driver, 'li.item > div> div.product-image-box >a')
     for element in elements:
         products.append(element.get_attribute('href').strip())
     return ';'.join(products)
