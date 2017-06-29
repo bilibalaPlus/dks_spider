@@ -10,9 +10,9 @@ def parse(driver, url):
     products = []
     driver.get(url)
     elements = util.find_elements_by_css_selector(driver, 'a.product-item')
-    if not elements:
+    if not elements: # http://www.louisvuitton.cn/zhs-cn/women/ready-to-wear/furs/_/N-f8lvb3
         elements = util.find_elements_by_css_selector(driver, 'li.listing > a.product-img')
-    for element in elements: # http://www.louisvuitton.cn/zhs-cn/women/ready-to-wear/furs/_/N-f8lvb3
+    for element in elements:
         products.append(element.get_attribute('href').strip())
     return ';'.join(products)
 
