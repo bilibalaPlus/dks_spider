@@ -98,7 +98,7 @@ def retry_task(task_id):
     if task:
         task = task.get()
         rq = dq.Queue(task_id)
-        jobs = dd.Job.select().where(dd.Job.status != js_finished)
+        jobs = dd.Job.select().where((dd.Job.task_id == task_id) & (dd.Job.status != js_finished))
         task.status = ts_inprogress
         task.failed = 0
         task.unfinished = task.tasks - task.finished
